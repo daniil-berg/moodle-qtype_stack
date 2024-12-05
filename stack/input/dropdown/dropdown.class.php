@@ -326,7 +326,10 @@ class stack_dropdown_input extends stack_input {
                 // And now we need to care about holders.
                 $holder = new castext2_placeholder_holder();
                 $ddlvalues[$key]['display'] = castext2_parser_utils::postprocess_mp_parsed(
-                    $at1->get_by_key('val'.$key)->get_evaluated(), $holder);
+                    $at1->get_by_key('val'.$key)->get_evaluated(),
+                    null,
+                    $holder,
+                );
                 $ddlvalues[$key]['display'] = $holder->replace($ddlvalues[$key]['display']);
             } else if (substr($display, 0, 1) == '"') {
                 $ddlvalues[$key]['display'] = stack_utils::maxima_string_to_php_string($display);
